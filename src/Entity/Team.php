@@ -27,12 +27,14 @@ class Team
      * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="team", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $login_captain;
+    private $captain;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="team")
      */
     private $players;
+
+
 
     public function __construct()
     {
@@ -56,14 +58,14 @@ class Team
         return $this;
     }
 
-    public function getLoginCaptain(): ?User
+    public function getCaptain(): ?User
     {
-        return $this->login_captain;
+        return $this->captain;
     }
 
-    public function setLoginCaptain(User $login_captain): self
+    public function setCaptain(User $captain): self
     {
-        $this->login_captain = $login_captain;
+        $this->captain = $captain;
 
         return $this;
     }
@@ -98,4 +100,7 @@ class Team
 
         return $this;
     }
+
+
+
 }

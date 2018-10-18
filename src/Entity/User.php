@@ -32,9 +32,10 @@ class User
     private $email;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Team", mappedBy="login_captain", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="players")
      */
     private $team;
+
 
     public function getId(): ?int
     {
@@ -82,15 +83,11 @@ class User
         return $this->team;
     }
 
-    public function setTeam(Team $team): self
+    public function setTeam(?Team $team): self
     {
         $this->team = $team;
 
-        // set the owning side of the relation if necessary
-        if ($this !== $team->getLoginCaptain()) {
-            $team->setLoginCaptain($this);
-        }
-
         return $this;
     }
+
 }
