@@ -47,4 +47,13 @@ class MatchDayRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function add(MatchDay $matchDay): void
+    {
+        $this->_em->persist($matchDay);
+    }
+
+    public function remove(MatchDay $matchDay): void
+    {
+        $this->_em->remove($matchDay);
+    }
 }

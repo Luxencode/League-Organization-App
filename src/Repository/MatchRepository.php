@@ -47,4 +47,13 @@ class MatchRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function add(Match $match): void
+    {
+        $this->_em->persist($match);
+    }
+
+    public function remove(Match $match): void
+    {
+        $this->_em->remove($match);
+    }
 }
