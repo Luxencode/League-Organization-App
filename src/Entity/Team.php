@@ -21,7 +21,7 @@ class Team
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nombre;
+    private $name;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="team", cascade={"persist", "remove"})
@@ -46,14 +46,14 @@ class Team
         return $this->id;
     }
 
-    public function getNombre(): ?string
+    public function getName(): ?string
     {
-        return $this->nombre;
+        return $this->name;
     }
 
-    public function setNombre(string $nombre): self
+    public function setName(string $name): self
     {
-        $this->nombre = $nombre;
+        $this->name = $name;
 
         return $this;
     }

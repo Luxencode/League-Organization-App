@@ -47,4 +47,15 @@ class TeamRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function add(Team $team): void
+    {
+        $this->_em->persist($team);
+    }
+
+    public function remove(Team $team): void
+    {
+        $this->_em->remove($team);
+    }
+
 }
